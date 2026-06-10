@@ -1,94 +1,66 @@
-# React Learning Journey 🚀
+# Password Generator
 
-A collection of React projects, experiments, and concepts that I build while learning React.
+A simple and responsive Password Generator built with React, Vite, and Tailwind CSS.
 
-## 📖 About
+## Screenshot
 
-This repository documents my journey of learning React through hands-on practice and project-based learning. It contains concept implementations, mini-projects, and complete applications built while exploring the React ecosystem.
+![Password Generator](./screenshots/password-generator.png)
 
-## 🎯 Learning Objectives
+## Features
 
-* Understand React fundamentals
-* Build reusable components
-* Learn state management
-* Work with APIs
-* Implement routing
-* Follow modern React best practices
-* Build real-world projects
+* Generate secure random passwords
+* Adjust password length from 8 to 100 characters
+* Include numbers in the password
+* Include special characters in the password
+* Copy generated password to clipboard
+* Visual feedback when password is copied
+* Generate a new password instantly with a single click
+* Responsive and clean UI
 
-## 📚 Concepts Covered
+## Technologies Used
 
-* JSX
-* Components
-* Props
-* State
-* Event Handling
-* Conditional Rendering
-* Lists & Keys
-* Forms
-* React Hooks
-* Context API
-* React Router
-* API Integration
-* Custom Hooks
-* Performance Optimization
+* React
+* Vite
+* Tailwind CSS
+* JavaScript
 
-## 📂 Repository Structure
+## Concepts Practiced
 
-```text
-.
-├── concepts/
-├── projects/
-└── README.md
-```
+* useState
+* useEffect
+* useCallback
+* useRef
+* Clipboard API
+* Controlled Components
+* Dynamic Rendering
 
-## Each project will have its own README file for installation instructions, so if you want this whole React Learning repo then just clone it otherwise you can clone the individual project also.
+## How It Works
 
-## 🚀 Getting Started
+1. Select the password length.
+2. Choose whether to include numbers and special characters.
+3. A password is generated automatically whenever settings change.
+4. Click **Change Password** to generate a new password.
+5. Click **Copy** to copy the password to the clipboard.
 
-Clone the repository:
+## Installation
 
 ```bash
-git clone git@github.com:AnkushSaral/React-Learning.git
-```
-
-Navigate to the repository:
-
-```bash
-cd react-learning
-```
-Choose a project:
-
-```bash
-cd projects/example-app
-```
-
-Install dependencies:
-
-```bash
+git clone <git clone git@github.com:AnkushSaral/React-Learning.git>
+cd .\projects\password-generator-with-react\
 npm install
-```
-
-Start the development server:
-
-```bash
 npm run dev
 ```
 
+## Future Improvements
 
+* Password strength meter
+* Uppercase/lowercase toggles
+* Exclude similar characters
+* Password history
+* Theme switcher
 
-## 🛠️ Tech Stack
+## Author
 
-* React
-* JavaScript (ES6+)
-* HTML5
-* CSS3
-* Vite
+Ankush
 
-## 📈 Progress
-
-Projects and concepts will be added regularly as I continue learning and building with React.
-
-## ⭐ Acknowledgements
-
-This repository serves as a personal learning archive and progress tracker throughout my React development journey.
+Built with React Hooks and Tailwind CSS.
