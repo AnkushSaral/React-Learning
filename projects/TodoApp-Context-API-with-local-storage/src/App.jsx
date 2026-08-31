@@ -1,18 +1,15 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { TodoProvider } from "./contexts";
+import { TodoForm, TodoItem } from "./components";
 
 function App() {
-
-  // All todos are stored in the state of the App component. The state is initialized with an empty array. 
+  // All todos are stored in the state of the App component. The state is initialized with an empty array.
   const [todos, setTodos] = useState([]);
-  
-  
-  
-  // The addTodo function adds a new todo to the state.
-    const addTodo = (todo) =>
-    setTodos((prev) => [{ todoID: Date.now(), ...todo }, ...prev]);
 
+  // The addTodo function adds a new todo to the state.
+  const addTodo = (todo) =>
+    setTodos((prev) => [{ todoID: Date.now(), ...todo }, ...prev]);
 
   // The updateTodo function updates an existing todo in the state.
   const updateTodo = (todoID, todo) => {
@@ -33,6 +30,20 @@ function App() {
       ),
     );
 
+  // To get all the todos from local storage when the component mounts, we use the useEffect hook.
+  useEffect(() => {
+    let todos = JSON.parse(localStorage.getItem("todos"));
+
+    if (todos && todos.length > 0) {
+      setTodos(todos);
+    }
+  }, []);
+
+  // To set the todos in local storage whenever the todos state changes, we use another useEffect hook.
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   return (
     <TodoProvider
       value={{ todos, addTodo, updateTodo, deleteTodo, toggleTodo }}
@@ -42,9 +53,17 @@ function App() {
           <h1 className="text-2xl font-bold text-center mb-8 mt-2">
             Manage Your Todos
           </h1>
-          <div className="mb-4">{/* Todo form goes here */}</div>
+          <div className="mb-4">
+            {/* Todo form goes here */}
+            <TodoForm />
+          </div>
           <div className="flex flex-wrap gap-y-3">
             {/*Loop and Add TodoItem here */}
+            {todos.map((todo) => (
+              <div className="w-full" key={todo.todoID}>
+                <TodoItem todo={todo} />{" "}
+              </div>
+            ))}
           </div>
         </div>
       </div>
